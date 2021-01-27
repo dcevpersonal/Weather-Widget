@@ -5,7 +5,17 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    section: "Home"
+    section: "Home",
+    WeatherData: {
+      Citysad: {
+        id: 1,
+        name: "London"
+      },
+      Citybsv: {
+        id: 2,
+        name: "Toronto"
+      }
+    }
   },
   mutations: {
     setSection(state, data) {

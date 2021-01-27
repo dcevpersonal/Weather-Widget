@@ -1,7 +1,7 @@
 <template>
   <div class="Settings-Section">
     <MenuSection text="Settings" type="Close" />
-    <ListItemSection />
+    <ListCitySection />
     <TextSection text="Add Location:" />
     <InputSection
       elementId="Setting-Section-Input-0"
@@ -17,15 +17,15 @@
 import Vue from "vue";
 
 import MenuSection from "@/components/Advanced-Components/Menu-Section.vue";
-import ListItemSection from "@/components/Advanced-Components/List-Item-Section.vue";
 import InputSection from "@/components/Basic-Components/Input-Section.vue";
 import TextSection from "@/components/Basic-Components/Text-Section.vue";
+import ListCitySection from "@/components/Advanced-Components/List-City-Section.vue";
 
 export default Vue.extend({
   name: "Settings-Section",
   components: {
     MenuSection,
-    ListItemSection,
+    ListCitySection,
     InputSection,
     TextSection
   }
@@ -39,6 +39,10 @@ export default Vue.extend({
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.draggable {
+  width: 100%;
 }
 
 #Text-Section {

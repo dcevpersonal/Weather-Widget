@@ -127,6 +127,21 @@
         d="m368 277.332031h-352c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h352c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0"
       />
     </svg>
+
+    <svg
+      height="512"
+      viewBox="0 0 512 512"
+      width="512"
+      xmlns="http://www.w3.org/2000/svg"
+      v-else-if="type === 'Enter'"
+      class="Enter"
+    >
+      <g id="Solid">
+        <path
+          d="m400 24a24 24 0 0 0 -24 24v272a32 32 0 0 1 -32 32h-174.059l47.03-47.029a24 24 0 0 0 -33.942-33.942l-88 88a24 24 0 0 0 0 33.942l88 88a24 24 0 0 0 33.942-33.942l-47.03-47.029h174.059a80 80 0 0 0 80-80v-272a24 24 0 0 0 -24-24z"
+        />
+      </g>
+    </svg>
     <!-- Rain -->
     <svg
       class="Weather"
@@ -377,7 +392,8 @@ export default Vue.extend({
 
 .Close,
 .Menu,
-.Remove {
+.Remove,
+.Enter {
   width: 25px;
   height: 25px;
   cursor: pointer;
@@ -387,7 +403,7 @@ export default Vue.extend({
 }
 
 .Remove {
-  transition: fill 0.2s ease-out;
+  transition: fill 0.1s ease-out;
   &:hover {
     fill: var(--Red-1);
   }
@@ -398,7 +414,7 @@ export default Vue.extend({
 }
 
 .Close {
-  transition: transform 0.2s ease-out;
+  transition: transform 0.1s ease-out;
   &:hover {
     transform: scale(1.1);
   }

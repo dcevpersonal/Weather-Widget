@@ -63,7 +63,7 @@ export default Vue.extend({
     font-family: "Roboto", sans-serif;
     font-size: 1rem;
     padding: 8px;
-    transition: border 0.2s ease-out;
+    transition: border 0.1s ease-out;
     &:focus {
       border: 2px solid var(--Blue-1);
     }
@@ -71,6 +71,6 @@ export default Vue.extend({
 }
 
 #Icon-Section {
-  margin-right: 12px;
+  margin-left: 12px;
 }
 </style>

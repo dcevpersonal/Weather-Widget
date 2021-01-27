@@ -2,10 +2,13 @@
   <div class="Settings-Section">
     <MenuSection text="Settings" type="Close" />
     <ListItemSection />
+    <TextSection text="Add Location:" />
     <InputSection
       elementId="Setting-Section-Input-0"
       name="City Search"
       textHolder="City Name"
+      :icon="true"
+      type="Enter"
     />
   </div>
 </template>
@@ -16,13 +19,15 @@ import Vue from "vue";
 import MenuSection from "@/components/Advanced-Components/Menu-Section.vue";
 import ListItemSection from "@/components/Advanced-Components/List-Item-Section.vue";
 import InputSection from "@/components/Basic-Components/Input-Section.vue";
+import TextSection from "@/components/Basic-Components/Text-Section.vue";
 
 export default Vue.extend({
   name: "Settings-Section",
   components: {
     MenuSection,
     ListItemSection,
-    InputSection
+    InputSection,
+    TextSection
   }
 });
 </script>
@@ -37,7 +42,11 @@ export default Vue.extend({
 }
 
 #Text-Section {
+  margin-top: 32px;
   font-size: 0.5rem;
-  margin: 28px;
+}
+#Input-Section {
+  margin-top: 8px;
+  margin-bottom: 32px;
 }
 </style>

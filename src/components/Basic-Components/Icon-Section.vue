@@ -405,7 +405,7 @@ export default Vue.extend({
 .Remove {
   transition: fill 0.1s ease-out;
   &:hover {
-    fill: var(--Red-1);
+    fill: #ef5350;
   }
 }
 

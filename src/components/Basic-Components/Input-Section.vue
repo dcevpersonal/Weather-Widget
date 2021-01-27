@@ -58,14 +58,14 @@ export default Vue.extend({
     height: 35px;
     border: none;
     outline: none;
-    border: 2px solid var(--Black-1);
+    border: 2px solid black;
     border-radius: 5px;
     font-family: "Roboto", sans-serif;
     font-size: 1rem;
     padding: 8px;
     transition: border 0.1s ease-out;
     &:focus {
-      border: 2px solid var(--Blue-1);
+      border: 2px solid #42a5f5;
     }
   }
 }

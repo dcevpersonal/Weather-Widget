@@ -13,6 +13,7 @@ import SettingsSection from "@/components/Advanced-Components/Settings-Section.v
 import store from "./store";
 
 export default Vue.extend({
+  store,
   name: "App",
   components: {
     WeatherCellSection,

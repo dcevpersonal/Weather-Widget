@@ -12,6 +12,19 @@ export default Vue.extend({
   name: "App",
   components: {
     WeatherCellSection
+  },
+  mounted() {
+    const googleFont = document.createElement("link");
+    const fontLoader = document.createElement("link");
+    googleFont.rel = "preconnect";
+    googleFont.href = "https://fonts.gstatic.com";
+
+    fontLoader.rel = "stylesheet";
+    fontLoader.href =
+      "https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&family=Roboto:wght@300;400&display=swap";
+
+    document.head.appendChild(googleFont);
+    document.head.appendChild(fontLoader);
   }
 });
 </script>

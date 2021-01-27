@@ -30,7 +30,6 @@ export default Vue.extend({
 }
 
 #Text-Section {
-  font-family: "Roboto", monospace;
   font-size: 0.5rem;
   margin: 15px;
 }

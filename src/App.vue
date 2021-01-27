@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <WeatherCellSection />
+    <WeatherCellSection v-if="section === 'Home'" />
+    <SettingsSection v-else />
   </div>
 </template>
 
@@ -8,23 +9,38 @@
 import Vue from "vue";
 
 import WeatherCellSection from "@/components/Advanced-Components/Weather-Cell-Section.vue";
+import SettingsSection from "@/components/Advanced-Components/Settings-Section.vue";
+import store from "./store";
+
 export default Vue.extend({
   name: "App",
   components: {
-    WeatherCellSection
+    WeatherCellSection,
+    SettingsSection
+  },
+  methods: {
+    FontLoader() {
+      const googleFont = document.createElement("link");
+      const fontLoader = document.createElement("link");
+      googleFont.rel = "preconnect";
+      googleFont.href = "https://fonts.gstatic.com";
+
+      fontLoader.rel = "stylesheet";
+      fontLoader.href =
+        "https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&family=Roboto:wght@300;400&display=swap";
+
+      document.head.appendChild(googleFont);
+      document.head.appendChild(fontLoader);
+    }
+  },
+  computed: {
+    section() {
+      return store.state.section;
+    }
   },
   mounted() {
-    const googleFont = document.createElement("link");
-    const fontLoader = document.createElement("link");
-    googleFont.rel = "preconnect";
-    googleFont.href = "https://fonts.gstatic.com";
-
-    fontLoader.rel = "stylesheet";
-    fontLoader.href =
-      "https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&family=Roboto:wght@300;400&display=swap";
-
-    document.head.appendChild(googleFont);
-    document.head.appendChild(fontLoader);
+    //Vue Web Component Font Load Bug Fix
+    this.FontLoader();
   }
 });
 </script>
@@ -53,6 +69,7 @@ html,
 body {
   --Black-1: #000000;
   --White-1: #ffffff;
+  --Red-1: #ef5350;
 
   box-sizing: border-box;
   font-size: 16px;

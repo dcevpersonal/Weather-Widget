@@ -1,6 +1,6 @@
 <template>
   <div class="Weather-Cell-Section">
-    <MenuSection />
+    <MenuSection text="London, UK" type="Settings" />
     <ScreenSection />
     <TextSection
       text="Feels liks -3C. Broken clouds. Light breeze"

@@ -1,0 +1,49 @@
+<template>
+  <div id="app">
+    <WeatherCellSection />
+  </div>
+</template>
+
+<script lang="ts">
+import Vue from "vue";
+
+import WeatherCellSection from "@/components/Advanced-Components/Weather-Cell-Section.vue";
+export default Vue.extend({
+  name: "App",
+  components: {
+    WeatherCellSection
+  }
+});
+</script>
+
+<style lang="scss">
+//Custom Font
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&family=Roboto:wght@300;400&display=swap");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+#app {
+  max-width: 300px;
+  min-width: 200px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  margin: 20px; //Remove !!!
+}
+
+html,
+body {
+  --Black-1: #000000;
+  --White-1: #ffffff;
+
+  box-sizing: border-box;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+}
+</style>

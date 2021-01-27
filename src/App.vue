@@ -70,6 +70,7 @@ body {
   --Black-1: #000000;
   --White-1: #ffffff;
   --Red-1: #ef5350;
+  --Blue-1: #42a5f5;
 
   box-sizing: border-box;
   font-size: 16px;

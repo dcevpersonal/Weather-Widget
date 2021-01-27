@@ -1,10 +1,10 @@
 <template>
   <div class="Information-Section" id="Information-Section">
-    <TextSection text="3.0m/s SSE" :icon="true" weight="Lighter" type="Wind" />
-    <TextSection text="1021hPa" :icon="true" weight="Lighter" type="Pressure" />
-    <TextSection text="Humidity: 97%" weight="Lighter" />
-    <TextSection text="Dew point: 0C" weight="Lighter" />
-    <TextSection text="Visibility: 10.0km" weight="Lighter" />
+    <TextSection text="3.0m/s SSE" :icon="true" weight="300" type="Wind" />
+    <TextSection text="1021hPa" :icon="true" weight="300" type="Pressure" />
+    <TextSection text="Humidity: 97%" weight="300" />
+    <TextSection text="Dew point: 0C" weight="300" />
+    <TextSection text="Visibility: 10.0km" weight="300" />
   </div>
 </template>
 

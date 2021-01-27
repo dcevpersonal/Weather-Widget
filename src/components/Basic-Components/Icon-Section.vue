@@ -393,6 +393,19 @@ export default Vue.extend({
   }
 }
 
+.Menu {
+  cursor: auto;
+}
+
+.Close {
+  transition: transform 0.2s ease-out;
+  &:hover {
+    transform: scale(1.1);
+  }
+  &:active {
+    transform: scale(0.9);
+  }
+}
 .Weather {
   width: 90px;
   height: 90px;

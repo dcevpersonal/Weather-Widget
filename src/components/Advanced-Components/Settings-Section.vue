@@ -2,6 +2,11 @@
   <div class="Settings-Section">
     <MenuSection text="Settings" type="Close" />
     <ListItemSection />
+    <InputSection
+      elementId="Setting-Section-Input-0"
+      name="City Search"
+      textHolder="City Name"
+    />
   </div>
 </template>
 
@@ -10,12 +15,14 @@ import Vue from "vue";
 
 import MenuSection from "@/components/Advanced-Components/Menu-Section.vue";
 import ListItemSection from "@/components/Advanced-Components/List-Item-Section.vue";
+import InputSection from "@/components/Basic-Components/Input-Section.vue";
 
 export default Vue.extend({
   name: "Settings-Section",
   components: {
     MenuSection,
-    ListItemSection
+    ListItemSection,
+    InputSection
   }
 });
 </script>

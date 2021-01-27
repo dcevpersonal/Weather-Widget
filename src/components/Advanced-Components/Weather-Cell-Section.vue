@@ -4,7 +4,7 @@
     <ScreenSection />
     <TextSection
       text="Feels liks -3C. Broken clouds. Light breeze"
-      weight="Lighter"
+      weight="300"
     />
     <InformationSection />
   </div>

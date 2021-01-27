@@ -1,6 +1,6 @@
 <template>
   <div class="List-Item-Section">
-    <TextSection text="London, UK" :icon="true" type="Menu" />
+    <TextSection text="London, UK" :icon="true" type="Menu" weight="300" />
     <IconSection type="Remove" />
   </div>
 </template>

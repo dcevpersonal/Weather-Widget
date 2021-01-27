@@ -410,7 +410,7 @@ export default Vue.extend({
 }
 
 .Menu {
-  cursor: auto;
+  cursor: move;
 }
 
 .Close {

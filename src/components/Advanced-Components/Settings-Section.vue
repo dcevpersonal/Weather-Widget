@@ -25,7 +25,9 @@
       type="Enter"
       :embedFunction="addWeatherData"
       v-model="city"
-      :animation="WeatherDataError ? 'shake' : ''"
+      :animation="
+        WeatherDataError ? 'shake' : '' || DuplicateCityError ? 'shake' : ''
+      "
     />
   </div>
 </template>
@@ -55,6 +57,7 @@ export default Vue.extend({
   methods: {
     addWeatherData() {
       store.commit("addWeatherData", this.city);
+      this.city = "";
     }
   },
   computed: {

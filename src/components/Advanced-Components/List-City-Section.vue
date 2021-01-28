@@ -48,6 +48,9 @@ export default Vue.extend({
   watch: {
     value() {
       store.commit("updateWeatherData", this.value);
+    },
+    WeatherData() {
+      this.value = this.WeatherData;
     }
   }
 });

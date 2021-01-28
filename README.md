@@ -23,12 +23,9 @@ npm run lint
 ### Stack
 ```
 Axios: 0.21.1,
-Core-js: 3.6.5,
-Register-service-worker: 1.7.1,
 Vue: 2.6.11,
-Vue-axios: 3.2.2,
-Vue-router: 3.2.0,
-Vuedraggable: 2.24.3,
+Vue-Axios: 3.2.2,
+VueDraggable: 2.24.3,
 Vuex: 3.4.0
 Babel: 4.5.0
 TypeScript: 3.9.3

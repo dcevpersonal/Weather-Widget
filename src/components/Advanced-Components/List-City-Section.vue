@@ -24,7 +24,13 @@ export default Vue.extend({
   data() {
     return {
       drag: false,
-      value: store.state.WeatherData
+      value: store.state.WeatherData,
+      dragOptions: {
+        animation: 150,
+        group: "description",
+        disabled: false,
+        ghostClass: "ghost"
+      }
     };
   },
   components: {
@@ -34,14 +40,6 @@ export default Vue.extend({
   computed: {
     WeatherData() {
       return store.state.WeatherData;
-    },
-    dragOptions() {
-      return {
-        animation: 150,
-        group: "description",
-        disabled: false,
-        ghostClass: "ghost"
-      };
     }
   },
   watch: {

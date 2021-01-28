@@ -11,7 +11,6 @@ import Vue from "vue";
 import WeatherListSection from "@/components/Advanced-Components/Weather-List-Section.vue";
 import SettingsSection from "@/components/Advanced-Components/Settings-Section.vue";
 import store from "./store";
-
 export default Vue.extend({
   store,
   name: "App",

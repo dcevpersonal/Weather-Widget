@@ -19,7 +19,6 @@ export default Vue.extend({
   },
   methods: {
     setSection() {
-      console.log("Click");
       if (this.section === "Home") {
         store.commit("setSection", "Settings");
       } else {

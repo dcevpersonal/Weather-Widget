@@ -39,11 +39,9 @@ export default new Vuex.Store({
       state.WeatherDataError = false;
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(position => {
-          console.log(position);
-
           axios
             .get(
-              "http://api.openweathermap.org/data/2.5/weather?lat=" +
+              "https://api.openweathermap.org/data/2.5/weather?lat=" +
                 position.coords.latitude +
                 "&lon=" +
                 position.coords.longitude +
@@ -96,7 +94,7 @@ export default new Vuex.Store({
       state.WeatherDataError = false;
       Vue.axios
         .get(
-          "http://api.openweathermap.org/data/2.5/weather?q=" +
+          "https://api.openweathermap.org/data/2.5/weather?q=" +
             data +
             "&appid=637ee0f88b3e40a2991fc34a234f8341&units=metric"
         )
@@ -134,7 +132,7 @@ export default new Vuex.Store({
       state.WeatherDataError = false;
       Vue.axios
         .get(
-          "http://api.openweathermap.org/data/2.5/group?id=" +
+          "https://api.openweathermap.org/data/2.5/group?id=" +
             ids +
             "&appid=637ee0f88b3e40a2991fc34a234f8341&units=metric"
         )

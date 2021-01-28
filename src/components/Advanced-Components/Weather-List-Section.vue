@@ -53,7 +53,6 @@ export default Vue.extend({
   },
   beforeDestroy() {
     clearInterval(this.timer);
-    console.log("Destroy");
   }
 });
 </script>

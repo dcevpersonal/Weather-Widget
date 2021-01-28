@@ -1,8 +1,13 @@
 <template>
   <div class="List-City-Section" id="List-City-Section">
-    <draggable handle=".Menu" class="draggable" v-bind="dragOptions">
+    <draggable
+      handle=".Menu"
+      class="draggable"
+      v-bind="dragOptions"
+      v-model="WeatherData"
+    >
       <li v-for="data in WeatherData" :key="data.id">
-        <ListCityItemSection :name="data.name" />
+        <ListCityItemSection :name="`${data.name},${data.country}`" />
       </li>
     </draggable>
   </div>
@@ -26,8 +31,13 @@ export default Vue.extend({
     draggable
   },
   computed: {
-    WeatherData() {
-      return store.state.WeatherData;
+    WeatherData: {
+      get() {
+        return store.state.WeatherData;
+      },
+      set(value) {
+        store.commit("updateWeatherData", value);
+      }
     },
     dragOptions() {
       return {

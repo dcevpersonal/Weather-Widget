@@ -1,7 +1,7 @@
 <template>
   <div class="Screen-Section">
-    <IconSection type="Snow" />
-    <TextSection text="7C" />
+    <IconSection :type="main" />
+    <TextSection :text="`${Math.round(temp)}°C`" />
   </div>
 </template>
 
@@ -12,6 +12,16 @@ import IconSection from "@/components/Basic-Components/Icon-Section.vue";
 
 export default Vue.extend({
   name: "Screen-Section",
+  props: {
+    temp: {
+      default: "Default",
+      type: String
+    },
+    main: {
+      default: "Default",
+      type: String
+    }
+  },
   components: {
     TextSection,
     IconSection

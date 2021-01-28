@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <WeatherCellSection v-if="section === 'Home'" />
+    <WeatherListSection v-if="section === 'Home'" />
     <SettingsSection v-else />
   </div>
 </template>
@@ -8,7 +8,7 @@
 <script lang="ts">
 import Vue from "vue";
 
-import WeatherCellSection from "@/components/Advanced-Components/Weather-Cell-Section.vue";
+import WeatherListSection from "@/components/Advanced-Components/Weather-List-Section.vue";
 import SettingsSection from "@/components/Advanced-Components/Settings-Section.vue";
 import store from "./store";
 
@@ -16,7 +16,7 @@ export default Vue.extend({
   store,
   name: "App",
   components: {
-    WeatherCellSection,
+    WeatherListSection,
     SettingsSection
   },
   methods: {
@@ -59,8 +59,7 @@ export default Vue.extend({
 }
 
 #app {
-  max-width: 300px;
-  min-width: 200px;
+  width: 300px;
   border: 1px solid rgba(0, 0, 0, 0.3);
   border-radius: 10px;
   margin: 20px; //Remove !!!

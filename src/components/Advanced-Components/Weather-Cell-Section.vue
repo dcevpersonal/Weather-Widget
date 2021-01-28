@@ -1,12 +1,24 @@
 <template>
   <div class="Weather-Cell-Section">
-    <MenuSection text="London, UK" type="Settings" />
-    <ScreenSection />
+    <MenuSection
+      :text="`${city},${country}`"
+      type="Settings"
+      :settings="settings"
+    />
+    <ScreenSection :main="main" :temp="temp" />
     <TextSection
-      text="Feels liks -3C. Broken clouds. Light breeze"
+      :text="`Feels liks ${feelsLike}°C. ${main}. ${description}`"
       weight="300"
     />
-    <InformationSection />
+    <InformationSection
+      :deg="deg"
+      :wind="wind"
+      :feelsLike="feelsLike"
+      :pressure="pressure"
+      :temp="temp"
+      :humidity="humidity"
+      :visibility="visibility"
+    />
   </div>
 </template>
 
@@ -25,6 +37,56 @@ export default Vue.extend({
     ScreenSection,
     TextSection,
     InformationSection
+  },
+  props: {
+    city: {
+      default: "Default",
+      type: String
+    },
+    country: {
+      default: "Default",
+      type: String
+    },
+    description: {
+      default: "Default",
+      type: String
+    },
+    main: {
+      default: "Default",
+      type: String
+    },
+    wind: {
+      default: "Default",
+      type: String
+    },
+    feelsLike: {
+      default: "Default",
+      type: String
+    },
+    temp: {
+      default: "Default",
+      type: String
+    },
+    pressure: {
+      default: "Default",
+      type: String
+    },
+    humidity: {
+      default: "Default",
+      type: String
+    },
+    visibility: {
+      default: "Default",
+      type: String
+    },
+    deg: {
+      default: "Default",
+      type: String
+    },
+    settings: {
+      default: false,
+      type: Boolean
+    }
   }
 });
 </script>

@@ -1,7 +1,7 @@
 <template>
   <div class="Menu-Section">
     <TextSection :text="text" />
-    <IconSection :type="type" :embedFunction="setSection" />
+    <IconSection :type="type" :embedFunction="setSection" v-if="settings" />
   </div>
 </template>
 
@@ -35,6 +35,10 @@ export default Vue.extend({
     type: {
       default: "Settings",
       type: String
+    },
+    settings: {
+      default: true,
+      type: Boolean
     }
   },
   computed: {

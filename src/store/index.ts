@@ -25,7 +25,8 @@ export default new Vuex.Store({
         visibility: "4300"
       }
     ],
-    WeatherDataError: false
+    WeatherDataError: false,
+    DuplicateCityError: false
   },
   mutations: {
     setWeatherData(state) {
@@ -45,7 +46,9 @@ export default new Vuex.Store({
                 position.coords.latitude +
                 "&lon=" +
                 position.coords.longitude +
-                "&appid=637ee0f88b3e40a2991fc34a234f8341&units=metric"
+                "&appid=" +
+                process.env.VUE_APP_OPEN_WEATHER_API_KEY +
+                "&units=metric"
             )
             .then(response => {
               const data = {
@@ -91,12 +94,15 @@ export default new Vuex.Store({
       localStorage.setItem("weatherdata", JSON.stringify(state.WeatherData));
     },
     addWeatherData(state, data) {
+      state.DuplicateCityError = false;
       state.WeatherDataError = false;
       Vue.axios
         .get(
           "https://api.openweathermap.org/data/2.5/weather?q=" +
             data +
-            "&appid=637ee0f88b3e40a2991fc34a234f8341&units=metric"
+            "&appid=" +
+            process.env.VUE_APP_OPEN_WEATHER_API_KEY +
+            "&units=metric"
         )
         .then(response => {
           const data = {
@@ -113,11 +119,22 @@ export default new Vuex.Store({
             humidity: response.data.main.humidity.toString(),
             visibility: response.data.visibility.toString()
           };
-          state.WeatherData.push(data);
-          localStorage.setItem(
-            "weatherdata",
-            JSON.stringify(state.WeatherData)
-          );
+
+          const duplicateCitycheck = state.WeatherData.some(element => {
+            return element.id === data.id;
+          });
+
+          state.DuplicateCityError = true;
+
+          if (!duplicateCitycheck) {
+            state.DuplicateCityError = false;
+            state.WeatherData.push(data);
+            localStorage.setItem(
+              "weatherdata",
+              JSON.stringify(state.WeatherData)
+            );
+          }
+
           state.WeatherDataError = false;
         })
         .catch(() => {
@@ -134,7 +151,9 @@ export default new Vuex.Store({
         .get(
           "https://api.openweathermap.org/data/2.5/group?id=" +
             ids +
-            "&appid=637ee0f88b3e40a2991fc34a234f8341&units=metric"
+            "&appid=" +
+            process.env.VUE_APP_OPEN_WEATHER_API_KEY +
+            "&units=metric"
         )
         .then(response => {
           for (const city of response.data.list) {

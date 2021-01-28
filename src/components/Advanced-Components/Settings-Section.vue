@@ -10,6 +10,13 @@
       v-if="WeatherDataError"
       weight="300"
     />
+    <TextSection
+      text="City Already Exists"
+      class="Text-Section-Error"
+      style="margin: 8px;font-family: 'Roboto Mono', monospace; font-size: 0.5rem; color: #ef5350"
+      v-if="DuplicateCityError"
+      weight="300"
+    />
     <InputSection
       elementId="Setting-Section-Input-0"
       name="City Search"
@@ -53,6 +60,9 @@ export default Vue.extend({
   computed: {
     WeatherDataError() {
       return store.state.WeatherDataError;
+    },
+    DuplicateCityError() {
+      return store.state.DuplicateCityError;
     }
   }
 });

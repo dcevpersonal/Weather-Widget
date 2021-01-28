@@ -1,7 +1,7 @@
 <template>
   <div class="Information-Section" id="Information-Section">
     <TextSection
-      :text="`${wind}m/s ${compass}`"
+      :text="`${Math.round(wind * 10) / 10}m/s ${compass}`"
       :icon="true"
       weight="300"
       type="Wind"
@@ -14,7 +14,10 @@
     />
     <TextSection :text="`Humidity: ${humidity}%`" weight="300" />
     <TextSection :text="`Dew point: ${Math.round(dewPoint)}°C`" weight="300" />
-    <TextSection :text="`Visibility: ${visibility / 1000}km`" weight="300" />
+    <TextSection
+      :text="`Visibility: ${Math.round(visibility / 100) / 10}km`"
+      weight="300"
+    />
   </div>
 </template>
 

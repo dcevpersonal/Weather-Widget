@@ -11,23 +11,9 @@ export default new Vuex.Store({
     section: "Home",
     WeatherData: [
       {
-        id: "1",
-        name: "London",
-        country: "GB",
-        description: "Moderate rain",
-        main: "Rain",
-        wind: "2.06",
-        feelsLike: "6.56",
-        deg: "100",
-        temp: "8.58",
-        pressure: "1009",
-        humidity: "97",
-        visibility: "4300"
-      },
-      {
-        id: "2",
+        id: "6167865",
         name: "Toronto",
-        country: "GB",
+        country: "CA",
         description: "Moderate rain",
         main: "Rain",
         wind: "2.06",
@@ -96,8 +82,6 @@ export default new Vuex.Store({
             "&appid=637ee0f88b3e40a2991fc34a234f8341&units=metric"
         )
         .then(response => {
-          console.log(response.data.list);
-
           for (const city of response.data.list) {
             state.WeatherData = state.WeatherData.filter(element => {
               return element.id !== city.id.toString();

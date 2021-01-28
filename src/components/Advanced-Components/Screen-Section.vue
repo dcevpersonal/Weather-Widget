@@ -1,7 +1,8 @@
 <template>
   <div class="Screen-Section">
     <IconSection :type="main" />
-    <TextSection :text="`${Math.round(temp)}°C`" />
+    <TextSection :text="`${Math.round(temp)}°C`" v-if="!WeatherDataError" />
+    <TextSection text="Error" v-else />
   </div>
 </template>
 
@@ -9,6 +10,7 @@
 import Vue from "vue";
 import TextSection from "@/components/Basic-Components/Text-Section.vue";
 import IconSection from "@/components/Basic-Components/Icon-Section.vue";
+import store from "@/store";
 
 export default Vue.extend({
   name: "Screen-Section",
@@ -25,6 +27,11 @@ export default Vue.extend({
   components: {
     TextSection,
     IconSection
+  },
+  computed: {
+    WeatherDataError() {
+      return store.state.WeatherDataError;
+    }
   }
 });
 </script>

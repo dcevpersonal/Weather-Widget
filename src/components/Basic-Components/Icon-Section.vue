@@ -416,7 +416,8 @@ export default Vue.extend({
   cursor: move;
 }
 
-.Close {
+.Close,
+.Enter {
   transition: transform 0.1s ease-out;
   &:hover {
     transform: scale(1.1);

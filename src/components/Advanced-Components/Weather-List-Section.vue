@@ -29,10 +29,25 @@ export default Vue.extend({
   components: {
     WeatherCellSection
   },
+  data() {
+    return {
+      timer: 0
+    };
+  },
   computed: {
     WeatherData() {
       return store.state.WeatherData;
     }
+  },
+  mounted() {
+    store.commit("getNewWeatherData");
+    this.timer = setInterval(() => {
+      store.commit("getNewWeatherData");
+    }, 1000 * 60 * 30);
+  },
+  beforeDestroy() {
+    clearInterval(this.timer);
+    console.log("Destroy");
   }
 });
 </script>

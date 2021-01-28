@@ -33,14 +33,14 @@ export default Vue.extend({
 .Screen-Section {
   display: flex;
   width: 100%;
-  padding: 28px;
+  padding: 24px;
   align-items: center;
   justify-content: center;
 }
 
 #Text-Section {
   font-family: "Roboto Mono", monospace;
-  font-size: 1.55rem;
+  font-size: 1.3rem;
   margin-left: 30px;
 }
 </style>

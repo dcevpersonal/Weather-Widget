@@ -7,7 +7,7 @@
     />
     <ScreenSection :main="main" :temp="temp" />
     <TextSection
-      :text="`Feels liks ${feelsLike}°C. ${main}. ${description}`"
+      :text="`Feels liks ${Math.round(feelsLike)}°C. ${main}. ${description}`"
       weight="300"
     />
     <InformationSection

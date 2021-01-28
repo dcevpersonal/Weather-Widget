@@ -62,6 +62,7 @@ export default Vue.extend({
   border: 1px solid rgba(0, 0, 0, 0.3);
   border-radius: 10px;
   margin: 20px; //Remove !!!
+  background: #ffffff;
 }
 
 html,
@@ -70,7 +71,7 @@ body {
   --White-1: #ffffff;
   --Red-1: #ef5350;
   --Blue-1: #42a5f5;
-
+  font-weight: normal;
   box-sizing: border-box;
   font-size: 16px;
   margin: 0;

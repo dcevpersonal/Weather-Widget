@@ -6,8 +6,12 @@
       :id="elementId"
       :name="elementId"
       :placeholder="textHolder"
+      @keyup.enter="embedFunction"
+      :value="value"
+      @input="$emit('input', $event.target.value)"
+      :class="animation"
     />
-    <IconSection :type="type" v-if="icon" />
+    <IconSection :type="type" v-if="icon" :embedFunction="embedFunction" />
   </div>
 </template>
 
@@ -40,6 +44,20 @@ export default Vue.extend({
     icon: {
       default: false,
       type: Boolean
+    },
+    embedFunction: {
+      type: Function,
+      default: function() {
+        console.log("Default");
+      }
+    },
+    animation: {
+      default: "",
+      type: String
+    },
+    value: {
+      default: "",
+      type: String
     }
   }
 });
@@ -52,7 +70,7 @@ export default Vue.extend({
   font-family: "Roboto", sans-serif;
   label {
     position: absolute;
-    z-index: -1;
+    z-index: -2;
   }
   input {
     height: 35px;
@@ -70,7 +88,27 @@ export default Vue.extend({
   }
 }
 
+.shake {
+  animation: Shake 0.25s ease-in-out;
+  animation-delay: 0.1s;
+}
+
 #Icon-Section {
   margin-left: 12px;
+}
+
+@keyframes Shake {
+  0% {
+    margin-left: 0rem;
+  }
+  25% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+  100% {
+    margin-left: 0rem;
+  }
 }
 </style>

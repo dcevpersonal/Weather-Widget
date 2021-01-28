@@ -136,6 +136,7 @@
       xmlns="http://www.w3.org/2000/svg"
       v-else-if="type === 'Enter'"
       class="Enter"
+      @click="embedFunction"
     >
       <g id="Solid">
         <path

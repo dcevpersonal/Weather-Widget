@@ -3,12 +3,22 @@
     <MenuSection text="Settings" type="Close" />
     <ListCitySection />
     <TextSection text="Add Location:" />
+    <TextSection
+      text="City Not Found"
+      class="Text-Section-Error"
+      style="margin: 8px;font-family: 'Roboto Mono', monospace; font-size: 0.5rem; color: #ef5350"
+      v-if="WeatherDataError"
+      weight="300"
+    />
     <InputSection
       elementId="Setting-Section-Input-0"
       name="City Search"
       textHolder="City Name"
       :icon="true"
       type="Enter"
+      :embedFunction="addWeatherData"
+      v-model="city"
+      :animation="WeatherDataError ? 'shake' : ''"
     />
   </div>
 </template>
@@ -20,6 +30,7 @@ import MenuSection from "@/components/Advanced-Components/Menu-Section.vue";
 import InputSection from "@/components/Basic-Components/Input-Section.vue";
 import TextSection from "@/components/Basic-Components/Text-Section.vue";
 import ListCitySection from "@/components/Advanced-Components/List-City-Section.vue";
+import store from "@/store";
 
 export default Vue.extend({
   name: "Settings-Section",
@@ -28,6 +39,21 @@ export default Vue.extend({
     ListCitySection,
     InputSection,
     TextSection
+  },
+  data() {
+    return {
+      city: ""
+    };
+  },
+  methods: {
+    addWeatherData() {
+      store.commit("addWeatherData", this.city);
+    }
+  },
+  computed: {
+    WeatherDataError() {
+      return store.state.WeatherDataError;
+    }
   }
 });
 </script>
@@ -49,6 +75,7 @@ export default Vue.extend({
   margin-top: 32px;
   font-size: 0.5rem;
 }
+
 #Input-Section {
   margin-top: 8px;
   margin-bottom: 32px;

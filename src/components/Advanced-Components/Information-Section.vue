@@ -13,7 +13,7 @@
       type="Pressure"
     />
     <TextSection :text="`Humidity: ${humidity}%`" weight="300" />
-    <TextSection :text="`Dew point: ${dewPoint}°C`" weight="300" />
+    <TextSection :text="`Dew point: ${Math.round(dewPoint)}°C`" weight="300" />
     <TextSection :text="`Visibility: ${visibility / 1000}km`" weight="300" />
   </div>
 </template>

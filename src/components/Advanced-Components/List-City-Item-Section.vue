@@ -1,7 +1,11 @@
 <template>
   <div class="List-City-Item-Section">
     <TextSection :text="name" :icon="true" type="Menu" weight="300" />
-    <IconSection type="Remove" />
+    <IconSection
+      type="Remove"
+      :embedFunction="removeWeatherData"
+      v-if="WeatherData[0].id !== id || WeatherData.length > 1"
+    />
   </div>
 </template>
 
@@ -9,6 +13,7 @@
 import Vue from "vue";
 import TextSection from "@/components/Basic-Components/Text-Section.vue";
 import IconSection from "@/components/Basic-Components/Icon-Section.vue";
+import store from "@/store";
 
 export default Vue.extend({
   name: "List-City-Item-Section",
@@ -16,11 +21,25 @@ export default Vue.extend({
     name: {
       default: "Default",
       type: String
+    },
+    id: {
+      default: "Default",
+      type: String
+    }
+  },
+  methods: {
+    removeWeatherData() {
+      store.commit("removeWeatherData", this.id);
     }
   },
   components: {
     TextSection,
     IconSection
+  },
+  computed: {
+    WeatherData() {
+      return store.state.WeatherData;
+    }
   }
 });
 </script>

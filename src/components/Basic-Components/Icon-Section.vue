@@ -92,6 +92,7 @@
       class="Remove"
       xmlns="http://www.w3.org/2000/svg"
       v-else-if="type === 'Remove'"
+      @click="embedFunction"
     >
       <g>
         <path

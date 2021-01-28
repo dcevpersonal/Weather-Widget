@@ -7,7 +7,10 @@
       v-model="value"
     >
       <li v-for="data in WeatherData" :key="data.id">
-        <ListCityItemSection :name="`${data.name},${data.country}`" />
+        <ListCityItemSection
+          :name="`${data.name},${data.country}`"
+          :id="data.id"
+        />
       </li>
     </draggable>
   </div>
@@ -44,8 +47,6 @@ export default Vue.extend({
   },
   watch: {
     value() {
-      console.log(this.value);
-
       store.commit("updateWeatherData", this.value);
     }
   }

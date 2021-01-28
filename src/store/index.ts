@@ -8,7 +8,7 @@ export default new Vuex.Store({
     section: "Home",
     WeatherData: [
       {
-        id: 1,
+        id: "1",
         name: "London",
         country: "GB",
         description: "Moderate rain",
@@ -22,7 +22,7 @@ export default new Vuex.Store({
         visibility: "4300"
       },
       {
-        id: 2,
+        id: "2",
         name: "Toronto",
         country: "GB",
         description: "Moderate rain",
@@ -43,7 +43,11 @@ export default new Vuex.Store({
     },
     updateWeatherData(state, data) {
       state.WeatherData = data;
-      console.log(state.WeatherData);
+    },
+    removeWeatherData(state, data) {
+      state.WeatherData = state.WeatherData.filter(elemenet => {
+        return elemenet.id !== data;
+      });
     }
   },
   actions: {
@@ -52,6 +56,9 @@ export default new Vuex.Store({
     },
     updateWeatherData(context, data) {
       context.commit("updateWeatherData", data);
+    },
+    removeWeatherData(context, data) {
+      context.commit("removeWeatherData", data);
     }
   },
   modules: {}

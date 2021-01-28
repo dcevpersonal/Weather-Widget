@@ -40,6 +40,12 @@ export default Vue.extend({
     }
   },
   mounted() {
+    if (localStorage.getItem("weatherdata") !== null) {
+      store.commit("setWeatherData");
+    } else {
+      store.commit("getUserLocation");
+    }
+
     store.commit("getNewWeatherData");
     this.timer = setInterval(() => {
       store.commit("getNewWeatherData");

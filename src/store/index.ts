@@ -28,16 +28,69 @@ export default new Vuex.Store({
     WeatherDataError: false
   },
   mutations: {
+    setWeatherData(state) {
+      if (localStorage.getItem("weatherdata") !== null) {
+        state.WeatherData = JSON.parse(
+          localStorage.getItem("weatherdata") || ""
+        );
+      }
+    },
+    getUserLocation(state) {
+      state.WeatherDataError = false;
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(position => {
+          console.log(position);
+
+          axios
+            .get(
+              "http://api.openweathermap.org/data/2.5/weather?lat=" +
+                position.coords.latitude +
+                "&lon=" +
+                position.coords.longitude +
+                "&appid=637ee0f88b3e40a2991fc34a234f8341&units=metric"
+            )
+            .then(response => {
+              const data = {
+                id: response.data.id.toString(),
+                name: response.data.name,
+                country: response.data.sys.country,
+                description: response.data.weather[0].description,
+                main: response.data.weather[0].main,
+                wind: response.data.wind.speed.toString(),
+                feelsLike: response.data.main.feels_like.toString(),
+                deg: response.data.wind.deg.toString(),
+                temp: response.data.main.temp.toString(),
+                pressure: response.data.main.pressure.toString(),
+                humidity: response.data.main.humidity.toString(),
+                visibility: response.data.visibility.toString()
+              };
+              state.WeatherData = [];
+              state.WeatherData.push(data);
+              localStorage.setItem(
+                "weatherdata",
+                JSON.stringify(state.WeatherData)
+              );
+              state.WeatherDataError = false;
+            })
+            .catch(() => {
+              state.WeatherDataError = true;
+            });
+        });
+      }
+    },
     setSection(state, data) {
       state.section = data;
     },
     updateWeatherData(state, data) {
       state.WeatherData = data;
+      localStorage.setItem("weatherdata", JSON.stringify(state.WeatherData));
     },
     removeWeatherData(state, data) {
       state.WeatherData = state.WeatherData.filter(elemenet => {
         return elemenet.id !== data;
       });
+
+      localStorage.setItem("weatherdata", JSON.stringify(state.WeatherData));
     },
     addWeatherData(state, data) {
       state.WeatherDataError = false;
@@ -63,6 +116,10 @@ export default new Vuex.Store({
             visibility: response.data.visibility.toString()
           };
           state.WeatherData.push(data);
+          localStorage.setItem(
+            "weatherdata",
+            JSON.stringify(state.WeatherData)
+          );
           state.WeatherDataError = false;
         })
         .catch(() => {
@@ -102,6 +159,10 @@ export default new Vuex.Store({
             };
             state.WeatherData.push(data);
           }
+          localStorage.setItem(
+            "weatherdata",
+            JSON.stringify(state.WeatherData)
+          );
           state.WeatherDataError = false;
         })
         .catch(() => {
@@ -110,6 +171,9 @@ export default new Vuex.Store({
     }
   },
   actions: {
+    setWeatherData(context) {
+      context.commit("setWeatherData");
+    },
     setSection(context, data) {
       context.commit("setSection", data);
     },
@@ -124,6 +188,9 @@ export default new Vuex.Store({
     },
     getNewWeatherData(context) {
       context.commit("getNewWeatherData");
+    },
+    getUserLocation(context) {
+      context.commit("getUserLocation");
     }
   },
   modules: {}

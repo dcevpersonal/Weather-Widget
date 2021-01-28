@@ -38,6 +38,11 @@ Node-SASS": 4.12.0
 Webpack
 ```
 
+### Note
+```
+Please Remove '<script src="https://unpkg.com/vue"></script>' From The Final Build.
+```
+
 ### Author
 ```
 Danil Lazarev For Plumsail - 2021

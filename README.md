@@ -31,7 +31,7 @@ Babel: 4.5.0
 TypeScript: 3.9.3
 Eslint: 6.7.2
 Prettier: 1.19.1
-Node-SASS": 4.12.0
+Node-SASS: 4.12.0
 Webpack
 ```
 

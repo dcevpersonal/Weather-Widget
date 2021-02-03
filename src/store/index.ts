@@ -55,7 +55,9 @@ export default new Vuex.Store({
                 id: response.data.id.toString(),
                 name: response.data.name,
                 country: response.data.sys.country,
-                description: response.data.weather[0].description,
+                description:
+                  response.data.weather[0].description.charAt(0).toUpperCase() +
+                  response.data.weather[0].description.slice(1),
                 main: response.data.weather[0].main,
                 wind: response.data.wind.speed.toString(),
                 feelsLike: response.data.main.feels_like.toString(),
@@ -109,7 +111,9 @@ export default new Vuex.Store({
             id: response.data.id.toString(),
             name: response.data.name,
             country: response.data.sys.country,
-            description: response.data.weather[0].description,
+            description:
+              response.data.weather[0].description.charAt(0).toUpperCase() +
+              response.data.weather[0].description.slice(1),
             main: response.data.weather[0].main,
             wind: response.data.wind.speed.toString(),
             feelsLike: response.data.main.feels_like.toString(),
@@ -164,7 +168,9 @@ export default new Vuex.Store({
               id: city.id.toString(),
               name: city.name,
               country: city.sys.country,
-              description: city.weather[0].description,
+              description:
+                city.weather[0].description.charAt(0).toUpperCase() +
+                city.weather[0].description.slice(1),
               main: city.weather[0].main,
               wind: city.wind.speed.toString(),
               feelsLike: city.main.feels_like.toString(),

@@ -1,5 +1,4 @@
-# 🌌 STAR-AND-ATOM-FRONT-END
-######  Front End Of New Minimalistic Social Media[ StarAndAtom.com](https://starandatom.com " StarAndAtom.com")
+# 🌌 Weather-Widget
 
 ##  ❄️ Getting Started
 ###### For initializing the project you need to use the following commands

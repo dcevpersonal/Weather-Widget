@@ -1,27 +1,29 @@
-# Weather-Widget
+# 🌌 STAR-AND-ATOM-FRONT-END
+######  Front End Of New Minimalistic Social Media[ StarAndAtom.com](https://starandatom.com " StarAndAtom.com")
 
-## Project setup
-```
-npm install
-```
+##  ❄️ Getting Started
+###### For initializing the project you need to use the following commands
+    npm install
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+##  🛰️ Prerequisites
+###### To use the project you need to install
+    Vue CLI
+    Node
+    NPM
 
-### Compiles and minifies for production
-```
-npm run create
-```
+## 🚄 Running
+###### To run the project you need to execute
+    npm run serve
 
-### Lints and fixes files
-```
-npm run lint
-```
+## ⏱️ Building
+###### To build the project you need to execute
+    npm run create
 
-### Stack
-```
+## 🚀   Deployment
+###### Currently Front End deployed to Netlify
+
+##  🛡️ Build with   
+
 Axios: 0.21.1,
 Vue: 2.6.11,
 Vue-Axios: 3.2.2,
@@ -33,18 +35,6 @@ Eslint: 6.7.2
 Prettier: 1.19.1
 Node-SASS: 4.12.0
 Webpack
-```
-
-### Note
-```
-Please Remove '<script src="https://unpkg.com/vue"></script>' From The Final Build.
-```
-
-### Author
-```
-Danil Lazarev For Plumsail - 2021
-```
-
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+	
+##  🦌 Authors
+    Daniel Lane (Danil Lazarev) - 2021
